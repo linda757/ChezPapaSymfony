@@ -1,0 +1,200 @@
+{% extends 'base.html.twig' %}
+
+    {% block body %}
+
+    <main class="container">
+        <div class="jumbotron mt-3">
+            <h1 class="h1">{{titre}}</h1>
+                <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+                    <hr class="my-4">
+                <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+                <p class="lead">
+                <a class="btn btn-primary btn-lg" href="#" role="button">Plus d'info</a>
+            </p>
+        </div>
+
+        <h3 class="h1 mt-3 mb-4">Offres spéciales</h3>
+        <section class="row">
+
+            <article class="col-md-4">
+                <div class="card border-primary mb-3">
+                    <h3 class="card-header">1 chambres, <strong>45 &euro; </strong>/nuit</h3>
+                     <img style="height: 200px; width: 100%; display: block;" src="/img/balcon.jpeg" alt="Card image">
+                    
+                    <div class="card-body">
+                        <h5 class="card-title">Amalfi, Italie</h5>
+                        <p><span>Bel appartement situé à 50m de la plage, au 2ème étage avec ascenseur et proche de tout commerce.</span><br><br>
+                        <span>Cuisine équipée, salle de bain belle et spacieuse, chambre avec balcon avec vue sur la mer.</span><br>
+                        
+                    </div>
+                   
+                    <div class="card-body">
+                        <p class="card-text">Idéal pour voyage de noce ou pour jeune couple.</p>
+                    </div>
+                    
+                    <div class="card-body">
+                        <a href="#" class="btn btn-primary">plus d'infos</a>
+                        
+                    </div>
+                    <div class="card-footer text-muted">
+                        Pas encore noté.
+                    </div>
+                    </div>
+            </article>
+        
+            <article class="col-md-4">
+                <div class="card border-primary mb-3 ">
+                    <h3 class="card-header">3 chambres, <strong>75 &euro; </strong>/nuit</h3>
+                     <img style="height: 200px; width: 100%; display: block;" src="/img/balcon1.jpeg" alt="Card image">
+                    
+                    <div class="card-body">
+                        <h5 class="card-title">Sable d'Olonne, France</h5>
+                        <p><span>Bel appartement situé à 200m du canal et proche de la mer, au 5ème étage avec ascenseur et proche de tout commerce.</span><br><br>
+                        <span>1 grande chambre pour les parents, 1 chambre avec un lit-superposé et 1 chambre avec un lit simple.</span><br><br>
+                        <span>Cuisine équipée, belle salle de bain, 1 place de parking au sous-sol.</span><br>
+                        
+                    </div>
+                   
+                    <div class="card-body">
+                        <p class="card-text">Appartement pour 5 personnes.</p>
+                    </div>
+                    
+                    <div class="card-body">
+                        <a href="#" class="btn btn-primary">plus d'infos</a>
+                        
+                    </div>
+                    <div class="card-footer text-muted">
+                        Pas encore noté.
+                    </div>
+                    </div>
+            </article>
+
+       
+            <article class="col-md-4">
+                <div class="card border-primary mb-3">
+                    <h3 class="card-header">2 chambres, <strong>55 &euro; </strong>/nuit</h3>
+                     <img style="height: 200px; width: 100%; display: block;" src="/img/balcon2.gif" alt="Card image">
+                    
+                    <div class="card-body">
+                        <h5 class="card-title">Les Gets, France</h5>
+                        <p><span>Appartement proche de la nature, à 500m du Centre ville et des pistes.</span><br><br>
+                        <span>1 grande chambre pour les parents et 1 chambre avec un lit-superposé.</span><br><br>
+                        <span>Cuisine équipée, salle de bain lumineuse, chambre avec balcon avec vue sur la montagne.</span><br>
+                        
+                    </div>
+                   
+                    <div class="card-body">
+                        <p class="card-text">Idéal pour être en contact avec la nature.</p>
+                    </div>
+                    
+                    <div class="card-body">
+                        <a href="#" class="btn btn-primary">plus d'infos</a>
+                        
+                    </div>
+                    <div class="card-footer text-muted">
+                        Pas encore noté.
+                    </div>
+                    </div>
+            </article>
+        </section>
+
+        <section>
+        <h3 class="h1 mt-3 mb-4">Les meilleurs commentaires</h3>
+        <section class="row">
+            <article class="col-md-3">
+                <div class="card border-info mb-3">
+                    <h3 class="card-header text-white bg-info mb-3">Julien Cool</h3>
+                     <img class="float-left mx-3" src="https://via.placeholder.com/64x64" alt="Avatar de ...">
+                    
+                    <div class="card-body">
+                        <h5 class="card-title">Les Gets, France</h5>
+                        <p><span>Superbe appart!! </span><br><br>
+                        <span>J'ai été très impressionné par cette superbe vue !</span><br><br>
+                        <span>A refaire en hiver!! :-)</span><br>
+                        
+                    </div>
+                                       
+                    <div class="card-body">
+                        <a href="#" class="btn btn-info">plus d'infos</a>
+                        
+                    </div>
+                    <div class="card-footer text-muted">
+                        Pas encore noté.
+                    </div>
+                    </div>
+            </article>
+        
+            <article class="col-md-3">
+                <div class="card border-info mb-3">
+                    <h3 class="card-header text-white bg-info mb-3">Patricia Carte</h3>
+                     <img class="float-left mx-3" src="https://via.placeholder.com/64x64" alt="Avatar de ...">
+                    
+                    <div class="card-body">
+                        <h5 class="card-title">Sable d'Olonne, France</h5>
+                        <p><span>Rien à redire sauf que c'était génial! </span><br><br>
+                        <span>Superbe vue sur la mer avec un temps très agréable!</span><br><br>
+                        <span>Idéal pour un voyage en famille.</span><br>
+                        
+                    </div>
+                                       
+                    <div class="card-body">
+                        <a href="#" class="btn btn-info">plus d'infos</a>
+                        
+                    </div>
+                    <div class="card-footer text-muted">
+                        Pas encore noté.
+                    </div>
+                    </div>
+            </article>
+
+            <article class="col-md-3">
+                <div class="card border-info mb-3">
+                    <h3 class="card-header text-white bg-info mb-3">Julien Cool</h3>
+                     <img class="float-left mx-3" src="https://via.placeholder.com/64x64" alt="Avatar de ...">
+                    
+                    <div class="card-body">
+                        <h5 class="card-title">Les Gets, France</h5>
+                        <p><span>Superbe appart!! </span><br><br>
+                        <span>J'ai été très impressionné par cette superbe vue !</span><br><br>
+                        <span>A refaire en hiver!! :-)</span><br>
+                        
+                    </div>
+                                       
+                    <div class="card-body">
+                        <a href="#" class="btn btn-info">plus d'infos</a>
+                        
+                    </div>
+                    <div class="card-footer text-muted">
+                        Pas encore noté.
+                    </div>
+                    </div>
+            </article>
+
+            <article class="col-md-3">
+                <div class="card border-info mb-3">
+                    <h3 class="card-header text-white bg-info mb-3">Patricia Carte</h3>
+                     <img class="float-left mx-3" src="https://via.placeholder.com/64x64" alt="Avatar de ...">
+                    
+                    <div class="card-body">
+                        <h5 class="card-title">Sable d'Olonne, France</h5>
+                        <p><span>Rien à redire sauf que c'était génial! </span><br><br>
+                        <span>Superbe vue sur la mer avec un temps très agréable!</span><br><br>
+                        <span>Idéal pour un voyage en famille.</span><br>
+                        
+                    </div>
+                                       
+                    <div class="card-body">
+                        <a href="#" class="btn btn-info">plus d'infos</a>
+                        
+                    </div>
+                    <div class="card-footer text-muted">
+                        Pas encore noté.
+                    </div>
+                    </div>
+            </article>
+        
+        </section>
+
+
+    </main>
+{% endblock %}
