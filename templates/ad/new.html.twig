@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% form_theme form 'ad/_collections.html.twig' %}
+
+{% block body %}
+
+<div class="container">
+    <h1>Création d'une nouvelle annonce</h1>
+
+    {{ form_start(form) }}
+        {{ form_widget(form) }}
+
+        <button type="submit" class="btn btn-primary">Créer</button>
+    {{ form_end(form) }}
+</div>
+    
+{% endblock %}
+
+{% block _annonce_images_widget %}
+
+        <p>Ici, ajoutez des images supplémentaires</p>
+
+        <input type="hidden" id="widget-count" value="0">
+
+        <button type="button" class="btn btn-info" id="add-image">Ajouter une image</button>
+
+        {{ form_widget(form) }}
+
+{% endblock %}
+
+{% block _annonce_images_entry_row  %}
+
+        {{ form_widget(form) }}
+
+{% endblock %}

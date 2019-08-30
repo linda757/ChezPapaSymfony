@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello AdController!{% endblock %}
+
+{% block body %}
+
+<main class="container">
+    <h1 class="mt-5 mb-3">{{ controller_name }}</h1>
+    <div class="row">
+        {% for ad in ads %}
+            {% set url = path('ads_single',{'slug':ad.slug}) %}
+            <div class="col-md-4">
+                    <div class="card">
+                            <div class="card header bg-primary text-light border-primary mb-3">{{ad.menu}} Menu à <strong>{{ad.price}} &euro;/personne</strong></div>
+                                    <div class="card-body mb-3">
+                                        <a href="{{ url}}">
+                                        <img src="{{ad.coverImage}}" alt="{{ad.title}}" style="height:105px;width:100%display:block;">
+                                        <h4 class="card-title mt-3">{{ad.title}}</h4>
+                                        <p class="card-text">{{ad.introduction}}</p>
+                                        <a href="{{ url }}" class="btn btn-primary">Plus d'infos</a>
+                                    </div>
+                            
+                            <div class="card-footer">
+                                    <span>Pas encore noté</span>                            
+                            </div>
+                                    
+                            
+                    
+                    </div>
+            
+            </div>
+        {% endfor %}
+    </div>
+
+</main>    
+{% endblock %}
