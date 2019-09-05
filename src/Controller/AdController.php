@@ -16,7 +16,7 @@ class AdController extends AbstractController
 {
     /**
      * Permet d'afficher une liste d'annonces
-     * @Route("/ads", name="ad_list")
+     * @Route("/ads", name="ads_list")
      */
     public function index(AdRepository $repo){
 
@@ -60,6 +60,7 @@ class AdController extends AbstractController
                 $manager->persist($image);
             }
 
+            $ad->setAuthor($this->getUser());    
             $manager ->persist($ad);
             $manager ->flush();
 

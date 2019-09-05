@@ -11,3 +11,11 @@ body{background-color: #f3efef;}
 .carousel-caption{text-shadow: 3px 3px 3px rgba(0,0,0,0.5);}
 
 footer{position:fixed;bottom:0;width:100%;color:#f3efef;}
+
+.avatar{width:128px;height:128px;border-radius:50%;}
+
+.avatar-medium{max-width: 64px;max-height: 64px;}
+
+.avatar-small{max-width: 32px;max-height: 32px;}
+
+.card{margin-bottom:15px;}

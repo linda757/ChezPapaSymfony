@@ -15,21 +15,3 @@
 </div>
     
 {% endblock %}
-
-{% block _annonce_images_widget %}
-
-        <p>Ici, ajoutez des images supplémentaires</p>
-
-        <input type="hidden" id="widget-count" value="0">
-
-        <button type="button" class="btn btn-info" id="add-image">Ajouter une image</button>
-
-        {{ form_widget(form) }}
-
-{% endblock %}
-
-{% block _annonce_images_entry_row  %}
-
-        {{ form_widget(form) }}
-
-{% endblock %}
