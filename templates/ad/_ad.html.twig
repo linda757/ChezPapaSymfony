@@ -7,7 +7,12 @@
                                         <img src="{{ad.coverImage}}" alt="{{ad.title}}" style="height:105px;width:100%display:block;">
                                         <h4 class="card-title mt-3">{{ad.title}}</h4>
                                         <p class="card-text">{{ad.introduction}}</p>
-                                        <a href="{{ url }}" class="btn btn-primary">Plus d'infos</a>
+                                        <a href="{{ url }}" class="btn btn-primary">+ d'infos</a>
+
+                                        {% if app.user and app.user == ad.author %}    
+                                            <a href="{{ path('ads_edit',{'slug':ad.slug}) }}" class="btn btn-info">Modifier l'annonce</a>
+                                            
+                                        {% endif %}
                                     </div>
                             
                             <div class="card-footer">
