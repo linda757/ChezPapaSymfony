@@ -1,5 +1,8 @@
 body{background-color: #f3efef;}
 
+a{color:blue;}
+a:hover{color:blue;}
+
 .container{margin-top:1.2em;}
 
 .ad-title{background-size:cover;background-position: center center;padding:1em;}
@@ -19,3 +22,5 @@ footer{position:fixed;bottom:0;width:100%;color:#f3efef;}
 .avatar-small{max-width: 32px;max-height: 32px;}
 
 .card{margin-bottom:15px;}
+
+.datepicker table tr td.disabled, .datepicker table tr td.disabled:hover{color:indianred!important;text-decoration:line-through;}

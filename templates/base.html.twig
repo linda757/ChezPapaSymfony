@@ -2,10 +2,10 @@
 <html lang="fr">
     <head>
         <meta charset="UTF-8">
-        <title>{% block title %}SHAN GRILA{% endblock %}</title>
+        <title>{% block title %}Chez Papa{% endblock %}</title>
         <link rel="stylesheet" href="/css/bootstrap.min.css">
         <link rel="stylesheet" href="/css/app.css">
-        {% block stylesheets %}{% endblock %}
+        
         <script src="/js/jquery.min.js"></script>
     </head>
     <body>
@@ -23,8 +23,9 @@
 
         {% block header %}{% endblock %}
         {% block body %}{% endblock %}
+        {% include 'inc/footer.html.twig' %}
         {% block javascripts %}{% endblock %}
         
-        {% include 'inc/footer.html.twig' %}
+        
     </body>
 </html>

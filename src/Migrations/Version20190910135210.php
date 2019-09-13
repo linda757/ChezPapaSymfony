@@ -10,7 +10,7 @@ use Doctrine\Migrations\AbstractMigration;
 /**
  * Auto-generated Migration: Please modify to your needs!
  */
-final class Version20190905211459 extends AbstractMigration
+final class Version20190910135210 extends AbstractMigration
 {
     public function getDescription() : string
     {
@@ -22,17 +22,18 @@ final class Version20190905211459 extends AbstractMigration
         // this up() migration is auto-generated, please modify it to your needs
         $this->abortIf($this->connection->getDatabasePlatform()->getName() !== 'mysql', 'Migration can only be executed safely on \'mysql\'.');
 
+        $this->addSql('CREATE TABLE booking (id INT AUTO_INCREMENT NOT NULL, booker_id INT NOT NULL, ad_id INT NOT NULL, start_date DATETIME NOT NULL, end_date DATETIME NOT NULL, created_at DATETIME NOT NULL, amount DOUBLE PRECISION NOT NULL, INDEX IDX_E00CEDDE8B7E4006 (booker_id), INDEX IDX_E00CEDDE4F34D596 (ad_id), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci ENGINE = InnoDB');
         $this->addSql('CREATE TABLE role (id INT AUTO_INCREMENT NOT NULL, title VARCHAR(255) NOT NULL, PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci ENGINE = InnoDB');
         $this->addSql('CREATE TABLE role_user (role_id INT NOT NULL, user_id INT NOT NULL, INDEX IDX_332CA4DDD60322AC (role_id), INDEX IDX_332CA4DDA76ED395 (user_id), PRIMARY KEY(role_id, user_id)) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci ENGINE = InnoDB');
+        $this->addSql('CREATE TABLE user (id INT AUTO_INCREMENT NOT NULL, firstname VARCHAR(255) NOT NULL, lastname VARCHAR(255) NOT NULL, email VARCHAR(255) NOT NULL, avatar VARCHAR(255) DEFAULT NULL, hash VARCHAR(255) NOT NULL, introduction VARCHAR(255) NOT NULL, description LONGTEXT NOT NULL, slug VARCHAR(255) NOT NULL, PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci ENGINE = InnoDB');
+        $this->addSql('ALTER TABLE booking ADD CONSTRAINT FK_E00CEDDE8B7E4006 FOREIGN KEY (booker_id) REFERENCES user (id)');
+        $this->addSql('ALTER TABLE booking ADD CONSTRAINT FK_E00CEDDE4F34D596 FOREIGN KEY (ad_id) REFERENCES ad (id)');
         $this->addSql('ALTER TABLE role_user ADD CONSTRAINT FK_332CA4DDD60322AC FOREIGN KEY (role_id) REFERENCES role (id) ON DELETE CASCADE');
         $this->addSql('ALTER TABLE role_user ADD CONSTRAINT FK_332CA4DDA76ED395 FOREIGN KEY (user_id) REFERENCES user (id) ON DELETE CASCADE');
-        $this->addSql('ALTER TABLE ad ADD PRIMARY KEY (id)');
+        $this->addSql('ALTER TABLE ad ADD author_id INT NOT NULL');
         $this->addSql('ALTER TABLE ad ADD CONSTRAINT FK_77E0ED58F675F31B FOREIGN KEY (author_id) REFERENCES user (id)');
         $this->addSql('CREATE INDEX IDX_77E0ED58F675F31B ON ad (author_id)');
-        $this->addSql('ALTER TABLE image CHANGE ad_id ad_id INT DEFAULT NULL, ADD PRIMARY KEY (id)');
-        $this->addSql('ALTER TABLE image ADD CONSTRAINT FK_C53D045F4F34D596 FOREIGN KEY (ad_id) REFERENCES ad (id)');
-        $this->addSql('CREATE INDEX IDX_C53D045F4F34D596 ON image (ad_id)');
-        $this->addSql('ALTER TABLE user CHANGE avatar avatar VARCHAR(255) DEFAULT NULL, ADD PRIMARY KEY (id)');
+        $this->addSql('ALTER TABLE image CHANGE ad_id ad_id INT DEFAULT NULL');
     }
 
     public function down(Schema $schema) : void
@@ -41,19 +42,15 @@ final class Version20190905211459 extends AbstractMigration
         $this->abortIf($this->connection->getDatabasePlatform()->getName() !== 'mysql', 'Migration can only be executed safely on \'mysql\'.');
 
         $this->addSql('ALTER TABLE role_user DROP FOREIGN KEY FK_332CA4DDD60322AC');
+        $this->addSql('ALTER TABLE ad DROP FOREIGN KEY FK_77E0ED58F675F31B');
+        $this->addSql('ALTER TABLE booking DROP FOREIGN KEY FK_E00CEDDE8B7E4006');
+        $this->addSql('ALTER TABLE role_user DROP FOREIGN KEY FK_332CA4DDA76ED395');
+        $this->addSql('DROP TABLE booking');
         $this->addSql('DROP TABLE role');
         $this->addSql('DROP TABLE role_user');
-        $this->addSql('ALTER TABLE ad MODIFY id INT NOT NULL');
-        $this->addSql('ALTER TABLE ad DROP FOREIGN KEY FK_77E0ED58F675F31B');
+        $this->addSql('DROP TABLE user');
         $this->addSql('DROP INDEX IDX_77E0ED58F675F31B ON ad');
-        $this->addSql('ALTER TABLE ad DROP PRIMARY KEY');
-        $this->addSql('ALTER TABLE image MODIFY id INT NOT NULL');
-        $this->addSql('ALTER TABLE image DROP FOREIGN KEY FK_C53D045F4F34D596');
-        $this->addSql('DROP INDEX IDX_C53D045F4F34D596 ON image');
-        $this->addSql('ALTER TABLE image DROP PRIMARY KEY');
+        $this->addSql('ALTER TABLE ad DROP author_id');
         $this->addSql('ALTER TABLE image CHANGE ad_id ad_id INT DEFAULT NULL');
-        $this->addSql('ALTER TABLE user MODIFY id INT NOT NULL');
-        $this->addSql('ALTER TABLE user DROP PRIMARY KEY');
-        $this->addSql('ALTER TABLE user CHANGE avatar avatar VARCHAR(255) DEFAULT \'NULL\' COLLATE utf8mb4_unicode_ci');
     }
 }
